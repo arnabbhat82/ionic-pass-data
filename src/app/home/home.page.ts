@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomePage {
     ]
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dataService: DataService) { }
   openDetailsWithQueryParams() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
@@ -28,6 +29,10 @@ export class HomePage {
       }
     };
     this.router.navigate(['details'], navigationExtras);
+  }
+  openDetailsWithService() {
+    this.dataService.setData(42, this.user);
+    this.router.navigateByUrl('/details/42');
   }
 
 }
