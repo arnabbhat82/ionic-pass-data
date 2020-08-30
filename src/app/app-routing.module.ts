@@ -13,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'details/:id',
+    path: 'details',
     resolve: {
       special: DataResolverService
     },

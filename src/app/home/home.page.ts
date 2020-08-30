@@ -34,5 +34,13 @@ export class HomePage {
     this.dataService.setData(42, this.user);
     this.router.navigateByUrl('/details/42');
   }
+  openDetailsWithState() {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        user: this.user
+      }
+    };
+    this.router.navigate(['details'], navigationExtras);
+  }
 
 }
